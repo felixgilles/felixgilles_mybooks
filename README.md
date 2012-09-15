@@ -1,4 +1,4 @@
-Monkey
+My Books
 ======
 
 A books management application for Novius OS
