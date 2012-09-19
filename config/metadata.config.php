@@ -18,7 +18,7 @@ return array(
     'namespace' => 'Gif',
     'permission' => array(),
     'launchers' => array(
-        'provider_launcher' => array(
+        'mybooks' => array(
             'name'    => 'My Books',
             'url' => 'admin/felixgilles_mybooks/appdesk',
             'iconUrl' => 'static/apps/felixgilles_mybooks/img/32/book.png',
