@@ -27,6 +27,29 @@ return array(
         'id' => 'book_id',
         'title' => 'book_title',
     ),
+    'i18n' => array(
+        'addDropDown' => __('Select an action'),
+        'columns' => __('Columns'),
+        'showFiltersColumns' => __('Filters column header'),
+        'visibility' => __('Visibility'),
+        'settings' => __('Settings'),
+        'vertical' => __('Vertical'),
+        'horizontal' => __('Horizontal'),
+        'hidden' => __('Hidden'),
+        'item' => __('book'),
+        'items' => __('books'),
+        'showNbItems' => __('Showing {{x}} books out of {{y}}'),
+        'showOneItem' => __('Show 1 book'),
+        'showNoItem' => __('No book'),
+        'showAll' => __('Show all books'),
+        'views' => __('Views'),
+        'viewGrid' => __('Grid'),
+        'viewTreeGrid' => __('Tree grid'),
+        'viewThumbnails' => __('Thumbnails'),
+        'preview' => __('Preview'),
+        'loading' => __('Loading...'),
+        'languages' => __('Languages'),
+    ),
     'inputs' => array(
         'startdate' => function($value, $query) {
             list($begin, $end) = explode('|', $value.'|');
@@ -199,6 +222,21 @@ return array(
                     ),
                     'inputName' => 'author_id[]',
                     'vertical' => true
+                ),
+                'preview' => array(
+                    'vertical' => true,
+                    'reloadEvent' => 'Gif\\Model_Book',
+                    'label' => __('Preview'),
+                    'preview' => true,
+                    'options' => array(
+                        'meta' => array(
+                            'title' => array(
+                                'label' => __('Title'),
+                            ),
+                        ),
+                        'actions' => array('edit', 'delete'),
+                        'actionThumbnail' => 'edit',
+                    ),
                 ),
             ),
         ),
