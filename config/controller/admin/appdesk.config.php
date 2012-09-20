@@ -18,6 +18,7 @@ return array(
     ),
     'search_text' => 'book_title',
     'selectedView' => 'default',
+    'hideLocales' => true,
     'views' => array(
         'default' => array(
             'name' => __('Default view'),
