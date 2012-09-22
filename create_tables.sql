@@ -14,21 +14,20 @@ CREATE TABLE IF NOT EXISTS `mybooks_author_book` (
 
 CREATE TABLE IF NOT EXISTS `mybooks_book` (
   `book_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `book_title` text NOT NULL,
-  `book_img` text NOT NULL,
-  `book_publication` text NOT NULL,
-  `book_description` text NOT NULL,
-  `book_publisher` text NOT NULL,
-  `book_isbn` varchar(50) NOT NULL,
-  `book_page` int(11) NOT NULL,
-  `book_link` varchar(1000) NOT NULL,
-  `book_comments` text NOT NULL,
-  `book_acquisition` text NOT NULL,
+  `book_title` varchar(255) NOT NULL,
+  `book_img` varchar(255) DEFAULT NULL,
+  `book_publication` date DEFAULT NULL,
+  `book_publisher` varchar(255) DEFAULT NULL,
+  `book_isbn` varchar(50) DEFAULT NULL,
+  `book_page` int(11) DEFAULT NULL,
+  `book_link` varchar(255) DEFAULT NULL,
+  `book_acquisition` date DEFAULT NULL,
   `book_read` tinyint(1) NOT NULL,
-  `book_rating` tinyint(2) NOT NULL,
+  `book_rating` tinyint(2) DEFAULT NULL,
   `book_created_at` datetime DEFAULT NULL,
   `book_updated_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`book_id`)
+  PRIMARY KEY (`book_id`),
+  UNIQUE KEY `book_title` (`book_title`)
 );
 
 CREATE TABLE IF NOT EXISTS `mybooks_tag` (
