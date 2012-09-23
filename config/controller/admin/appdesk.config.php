@@ -27,6 +27,8 @@ return array(
     'dataset' => array(
         'id' => 'book_id',
         'title' => 'book_title',
+        'read' => 'book_read',
+        'rate' => 'book_rating',
     ),
     'i18n' => array(
         'addDropDown' => __('Select an action'),
@@ -145,6 +147,14 @@ return array(
                     'title' => array(
                         'headerText' => __('Title'),
                         'dataKey' => 'title'
+                    ),
+                    'read' => array(
+                        'headerText' => __('Readed'),
+                        'dataKey' => 'read'
+                    ),
+                    'rate' => array(
+                        'headerText' => __('Rate'),
+                        'dataKey' => 'rate'
                     ),
                     'actions' => array(
                         'actions' => array('update', 'delete'),

@@ -15,7 +15,6 @@ CREATE TABLE IF NOT EXISTS `mybooks_author_book` (
 CREATE TABLE IF NOT EXISTS `mybooks_book` (
   `book_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `book_title` varchar(255) NOT NULL,
-  `book_img` varchar(255) DEFAULT NULL,
   `book_publication` date DEFAULT NULL,
   `book_publisher` varchar(255) DEFAULT NULL,
   `book_isbn` varchar(50) DEFAULT NULL,

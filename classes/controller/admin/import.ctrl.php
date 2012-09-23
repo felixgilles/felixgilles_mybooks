@@ -19,9 +19,44 @@ class Controller_Admin_Import extends \Nos\Controller_Admin_Application
         \DB::query('TRUNCATE `mybooks_tag`')->execute();
         \DB::query('TRUNCATE `mybooks_tag_book`')->execute();
         \DB::query('TRUNCATE `nos_wysiwyg`')->execute();
+        \DB::query('TRUNCATE `nos_media_folder`')->execute();
+        \DB::query('TRUNCATE `nos_media`')->execute();
+        \DB::query('TRUNCATE `nos_media_link`')->execute();
+
+        $folder_root = \Nos\Model_Media_Folder::find(1);
+        $folder = new \Nos\Model_Media_Folder();
+        $folder->set_parent($folder_root);
+        $folder->medif_title = 'Books';
+        $folder->medif_dir_name = 'books';
+        $folder->save();
+
         $items = \DB::query('SELECT * FROM `items`')->as_object()->execute();
         foreach ($items as $item) {
             $book = new Model_Book();
+
+            if (!empty($item->cover) && $item->cover !== 'livre_images/book_no.png') {
+                $media = new \Nos\Model_Media();
+                $media->media_folder_id = $folder->medif_id;
+                $media->media_title = $item->title;
+                $media->media_file = \Nos\Orm_Behaviour_Virtualname::friendly_slug($item->title);
+
+                $file = APPPATH.'data/'.$item->cover;
+                $pathinfo = pathinfo(mb_strtolower($file));
+                $media->media_ext = $pathinfo['extension'];
+
+                $media->observe('before_save');
+                $dest = APPPATH.$media->get_private_path();
+                $dest_dir = dirname($dest).'/';
+                $base_dir = APPPATH.\Nos\Model_Media::$private_path;
+                $remaining_dir = str_replace($base_dir, '', $dest_dir);
+                // chmod  is 0777 here because it should be restricted with by the umask
+                is_dir($dest_dir) or \File::create_dir($base_dir, $remaining_dir, 0777);
+                \File::copy($file, $dest);
+                chmod($dest, 0664);
+                $media->save();
+
+                $book->medias->cover = $media;
+            }
 
             if (!empty($item->authors)) {
                 $authors = explode(', ', $item->authors);
