@@ -29,6 +29,9 @@ return array(
         'title' => 'book_title',
         'read' => 'book_read',
         'rate' => 'book_rating',
+        'thumbnail' => function($item) {
+            return $item->medias->cover ? $item->medias->cover->get_public_path_resized(64, 64) : '';
+        },
     ),
     'i18n' => array(
         'addDropDown' => __('Select an action'),
@@ -215,6 +218,19 @@ return array(
                             'actions' => array(
                                 'actions' => array(
                                     array(
+                                        'name' => 'edit',
+                                        'primary' => true,
+                                        'label' => __('Edit this author'),
+                                        'icon' => 'pencil',
+                                        'action' => array(
+                                            'action' => 'nosTabs',
+                                            'tab' => array(
+                                                'url' => 'admin/felixgilles_mybooks/author/insert_update/{{id}}',
+                                                'label' => 'Edit the author'
+                                            ),
+                                        ),
+                                    ),
+                                    array(
                                         'name' => 'delete',
                                         'action' => array(
                                             'action' => 'confirmationDialog',
@@ -241,7 +257,7 @@ return array(
                     'preview' => true,
                     'options' => array(
                         'meta' => array(
-                            'title' => array(
+                            'book_title' => array(
                                 'label' => __('Title'),
                             ),
                         ),

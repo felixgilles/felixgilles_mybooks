@@ -23,10 +23,14 @@ CREATE TABLE IF NOT EXISTS `mybooks_book` (
   `book_acquisition` date DEFAULT NULL,
   `book_read` tinyint(1) NOT NULL,
   `book_rating` tinyint(2) DEFAULT NULL,
+  `book_to_read` tinyint(2) DEFAULT NULL,
   `book_created_at` datetime DEFAULT NULL,
   `book_updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`book_id`),
-  UNIQUE KEY `book_title` (`book_title`)
+  UNIQUE KEY `book_title` (`book_title`),
+  KEY `book_to_read` (`book_to_read`),
+  KEY `book_read` (`book_read`),
+  KEY `book_rating` (`book_rating`)
 );
 
 CREATE TABLE IF NOT EXISTS `mybooks_tag` (

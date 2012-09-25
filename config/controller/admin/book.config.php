@@ -27,9 +27,9 @@ return array(
     ),
     'layout' => array(
         'title' => 'book_title',
-        'medias' => array('medias->thumbnail->medil_media_id'),
+        'medias' => array('medias->cover->medil_media_id'),
         'large' => true,
-        'subtitle' => array('book_species_id'),
+        'subtitle' => array('book_read', 'book_rating', 'book_to_read'),
         'content' => array(
             'expander' => array(
                 'view' => 'nos::form/expander',
@@ -42,8 +42,8 @@ return array(
                         'view' => 'nos::form/fields',
                         'params' => array(
                             'fields' => array(
-                                'book_summary',
-                                'wysiwygs->content->wysiwyg_text',
+                                'wysiwygs->description->wysiwyg_text',
+                                'wysiwygs->comments->wysiwyg_text',
                             ),
                         ),
                     ),
@@ -62,7 +62,14 @@ return array(
                         'view' => 'nos::form/fields',
                         'params' => array(
                             'fields' => array(
-                                'book_virtual_name',
+                                'authors',
+                                'book_publisher',
+                                'book_isbn',
+                                'book_publication',
+                                'book_page',
+                                'book_link',
+                                'book_acquisition',
+                                'tags',
                             ),
                         ),
                     ),
@@ -72,15 +79,15 @@ return array(
         'save' => 'save',
     ),
     'fields' => array(
-        'medias->thumbnail->medil_media_id' => array(
+        'medias->cover->medil_media_id' => array(
             'label' => '',
             'widget' => 'Nos\Widget_Media',
             'form' => array(
-                'title' => 'Thumbnail',
+                'title' => __('Cover'),
             ),
         ),
         'book_title' => array (
-            'label' => __('Name'),
+            'label' => __('Title'),
             'form' => array(
                 'type' => 'text',
             ),
@@ -89,32 +96,94 @@ return array(
                 'min_length' => array(2),
             ),
         ),
-        'book_summary' => array (
-            'label' => __('Summary'),
-            'form' => array(
-                'type' => 'textarea',
-                'rows' => '6',
-            ),
-        ),
-        'wysiwygs->content->wysiwyg_text' => array(
-            'label' => __('Content'),
+        'wysiwygs->description->wysiwyg_text' => array(
+            'label' => __('Description'),
             'widget' => 'Nos\Widget_Wysiwyg',
             'form' => array(
-                'style' => 'width: 100%; height: 500px;',
+                'style' => 'width: 100%; height: 250px;',
             ),
         ),
-        'book_species_id' => array(
-            'label' => 'Species: ',
+        'wysiwygs->comments->wysiwyg_text' => array(
+            'label' => __('Comments'),
+            'widget' => 'Nos\Widget_Wysiwyg',
+            'form' => array(
+                'style' => 'width: 100%; height: 250px;',
+            ),
+        ),
+        'book_read' => array(
+            'label' => __('Read'),
+            'form' => array(
+                'type' => 'checkbox',
+            ),
+        ),
+        'book_rating' => array(
+            'label' => __('Ratting'),
             'form' => array(
                 'type' => 'select',
+                'options' => array(0, 1, 2, 3, 4, 5),
             ),
         ),
-        'book_virtual_name' => array(
-            'label' => __('URL: '),
-            'widget' => 'Nos\Widget_Virtualname',
+        'book_to_read' => array(
+            'label' => __('To read'),
+            'form' => array(
+                'type' => 'select',
+                'options' => array(0, 1, 2, 3),
+            ),
+        ),
+        'book_isbn' => array (
+            'label' => __('ISBN'),
+            'form' => array(
+                'type' => 'text',
+            ),
+        ),
+        'book_publication' => array (
+            'label' => __('Publication'),
+            'widget' => 'Nos\Widget_Date_Picker',
+        ),
+        'book_publisher' => array (
+            'label' => __('Publisher'),
+            'form' => array(
+                'type' => 'text',
+            ),
+        ),
+        'book_page' => array (
+            'label' => __('Pages'),
+            'form' => array(
+                'type' => 'text',
+            ),
             'validation' => array(
-                'required',
-                'min_length' => array(2),
+                'valid_string' => array('numeric'),
+            ),
+        ),
+        'book_link' => array (
+            'label' => __('Link'),
+            'form' => array(
+                'type' => 'text',
+            ),
+            'validation' => array(
+                'valid_url',
+            ),
+        ),
+        'book_acquisition' => array (
+            'label' => __('Acquisition'),
+            'widget' => 'Nos\Widget_Date_Picker',
+        ),
+        'authors' => array(
+            'label' => __('Authors'),
+            'widget' => 'Nos\Widget_Tag',
+            'widget_options' => array(
+                'model'         => 'Gif\\Model_Author',
+                'label_column'  => 'author_name',
+                'relation_name' => 'authors'
+            ),
+        ),
+        'tags' => array(
+            'label' => __('Tags'),
+            'widget' => 'Nos\Widget_Tag',
+            'widget_options' => array(
+                'model'         => 'Gif\\Model_Tag',
+                'label_column'  => 'tag_label',
+                'relation_name' => 'tags'
             ),
         ),
         'save' => array(

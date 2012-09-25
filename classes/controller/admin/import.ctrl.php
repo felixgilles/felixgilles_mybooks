@@ -25,9 +25,9 @@ class Controller_Admin_Import extends \Nos\Controller_Admin_Application
 
         $folder_root = \Nos\Model_Media_Folder::find(1);
         $folder = new \Nos\Model_Media_Folder();
-        $folder->set_parent($folder_root);
         $folder->medif_title = 'Books';
         $folder->medif_dir_name = 'books';
+        $folder->set_parent($folder_root);
         $folder->save();
 
         $items = \DB::query('SELECT * FROM `items`')->as_object()->execute();
