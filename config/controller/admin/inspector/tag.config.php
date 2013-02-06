@@ -1,12 +1,14 @@
 <?php
 
 return array(
+    'model' => 'Gif\Model_Tag',
     'query' => array(
-        'model' => 'Gif\Model_Tag',
         'order_by' => 'tag_label',
     ),
-    'dataset' => array(
-        'id' => 'tag_id',
-        'title' => 'tag_label',
+    'appdesk' => array(
+        'label' => __('Tags'),
+    ),
+    'input' => array(
+        'key'   => 'tags.tag_id',
     ),
 );

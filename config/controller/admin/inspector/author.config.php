@@ -1,12 +1,19 @@
 <?php
 
 return array(
+    'model' => 'Gif\Model_Author',
     'query' => array(
-        'model' => 'Gif\Model_Author',
         'order_by' => 'author_name',
     ),
-    'dataset' => array(
-        'id' => 'author_id',
-        'name' => 'author_name',
+    'input' => array(
+        'key'   => 'author_id',
+    ),
+    'appdesk' => array(
+        'label' => __('Authors'),
+    ),
+    'data_mapping' => array(
+        'name'=> array(
+            'title' => __('Authors')
+        )
     ),
 );

@@ -10,21 +10,6 @@
 return array(
     'controller_url'  => 'admin/felixgilles_mybooks/book',
     'model' => 'Gif\\Model_Book',
-    'messages' => array(
-        'successfully added' => __('Book successfully added.'),
-        'successfully saved' => __('Book successfully saved.'),
-        'successfully deleted' => __('The book has successfully been deleted!'),
-        'you are about to delete, confim' => __('You are about to delete the book <span style="font-weight: bold;">":title"</span>. Are you sure you want to continue?'),
-        'item deleted' => __('This book has been deleted.'),
-        'not found' => __('Book not found'),
-        'delete an item' => __('Delete a book'),
-    ),
-    'tab' => array(
-        'iconUrl' => 'static/apps/felixgilles_mybooks/img/16/book.png',
-        'labels' => array(
-            'insert' => __('Add a book'),
-        ),
-    ),
     'layout' => array(
         'title' => 'book_title',
         'medias' => array('medias->cover->medil_media_id'),

@@ -18,24 +18,31 @@ class Controller_Admin_Import extends \Nos\Controller_Admin_Application
         \DB::query('TRUNCATE `mybooks_author_book`')->execute();
         \DB::query('TRUNCATE `mybooks_tag`')->execute();
         \DB::query('TRUNCATE `mybooks_tag_book`')->execute();
-        \DB::query('TRUNCATE `nos_wysiwyg`')->execute();
-        \DB::query('TRUNCATE `nos_media_folder`')->execute();
-        \DB::query('TRUNCATE `nos_media`')->execute();
-        \DB::query('TRUNCATE `nos_media_link`')->execute();
+        \DB::query('DELETE FROM `nos_wysiwyg` WHERE wysiwyg_join_table = \'mybooks_book\'')->execute();
 
-        $folder_root = \Nos\Model_Media_Folder::find(1);
-        $folder = new \Nos\Model_Media_Folder();
-        $folder->medif_title = 'Books';
-        $folder->medif_dir_name = 'books';
-        $folder->set_parent($folder_root);
-        $folder->save();
+        $folder = \Nos\Media\Model_Folder::find('first', array('where' => array(array('medif_dir_name', 'books'))));
+        if (empty($folder)) {
+            $folder_root = \Nos\Media\Model_Folder::find(1);
+            $folder = new \Nos\Media\Model_Folder();
+            $folder->medif_title = 'Books';
+            $folder->medif_dir_name = 'books';
+            $folder->set_parent($folder_root);
+            $folder->save();
+        }
+
+        $medias = \Nos\Media\Model_Media::find('all', array('where' => array(array('media_folder_id', $folder->medif_id))));
+        foreach ($medias as $media) {
+            $media->delete_from_disk();
+            $media->delete_public_cache();
+            $media->delete();
+        }
 
         $items = \DB::query('SELECT * FROM `items`')->as_object()->execute();
         foreach ($items as $item) {
             $book = new Model_Book();
 
             if (!empty($item->cover) && $item->cover !== 'livre_images/book_no.png') {
-                $media = new \Nos\Model_Media();
+                $media = new \Nos\Media\Model_Media();
                 $media->media_folder_id = $folder->medif_id;
                 $media->media_title = $item->title;
                 $media->media_file = \Nos\Orm_Behaviour_Virtualname::friendly_slug($item->title);
@@ -47,7 +54,7 @@ class Controller_Admin_Import extends \Nos\Controller_Admin_Application
                 $media->observe('before_save');
                 $dest = APPPATH.$media->get_private_path();
                 $dest_dir = dirname($dest).'/';
-                $base_dir = APPPATH.\Nos\Model_Media::$private_path;
+                $base_dir = APPPATH.\Nos\Media\Model_Media::$private_path;
                 $remaining_dir = str_replace($base_dir, '', $dest_dir);
                 // chmod  is 0777 here because it should be restricted with by the umask
                 is_dir($dest_dir) or \File::create_dir($base_dir, $remaining_dir, 0777);
