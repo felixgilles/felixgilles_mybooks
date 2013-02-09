@@ -9,10 +9,10 @@
 
 return array(
     'data_mapping' => array(
-        'title' => array(
+        'book_title' => array(
             'title' => __('Title'),
         ),
-        'read' => array(
+        'book_read' => array(
             'title' => __('Readed'),
         ),
         'book_rating' => array(

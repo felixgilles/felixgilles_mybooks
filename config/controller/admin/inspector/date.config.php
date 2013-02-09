@@ -19,7 +19,6 @@ return array(
     ),
     'options'               => array('custom', 'since', 'year'),
     'since'                 => array(
-        'optgroup'  => __('Since'),
         'options'   => array(
             '-6 month'          => __('Less than six months'),
             '-1 year'           => __('Less than one year'),
@@ -28,5 +27,8 @@ return array(
             '-5 year'           => __('Less than one year'),
             '-10 year'           => __('Less than one year'),
         ),
+    ),
+    'year'                  => array(
+        'limit'         => 10,
     ),
 );

@@ -4,13 +4,10 @@ Configurer les sharables
 Icones
 
 Appdesk :
-Inspecteur date que sur année/mois
-Inspecteurs que 5 affichés
-Grid que 20 affichés
 Ajouter la preview
 Colonne read en check image
 Colonne rate avec étoiles
-Lien sur titre (auteurs et livres)
+Lien sur titre (auteurs)
 Bouton pour ajouter via google livre
 
 

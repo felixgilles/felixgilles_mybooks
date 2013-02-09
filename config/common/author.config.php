@@ -1,7 +1,7 @@
 <?php
 return array (
     'data_mapping' => array(
-        'name' => array(
+        'author_name' => array(
             'title' => __('Author'),
         ),
     ),
