@@ -28,12 +28,13 @@ class Controller_Admin_Import extends \Nos\Controller_Admin_Application
             $folder->medif_dir_name = 'books';
             $folder->set_parent($folder_root);
             $folder->save();
+        } else {
+            $folder->delete_from_disk();
+            $folder->delete_public_cache();
         }
 
         $medias = \Nos\Media\Model_Media::find('all', array('where' => array(array('media_folder_id', $folder->medif_id))));
         foreach ($medias as $media) {
-            $media->delete_from_disk();
-            $media->delete_public_cache();
             $media->delete();
         }
 

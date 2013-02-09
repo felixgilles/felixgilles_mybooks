@@ -1,0 +1,29 @@
+Gérer les traductions
+Vérifier les commentaires de licence
+Configurer les sharables
+Icones
+
+Appdesk :
+Inspecteur date que sur année/mois
+Inspecteurs que 5 affichés
+Grid que 20 affichés
+Ajouter la preview
+Colonne read en check image
+Colonne rate avec étoiles
+Lien sur titre (auteurs et livres)
+Bouton pour ajouter via google livre
+
+
+Formulaire
+Cacher "to read" si déjà lu
+Widget ratting à base d'étoiles
+Date de publication en mois/année
+Revoir widget pour les auteurs
+Revoir widget editeur (autocomplétion mais saisi possible)
+
+Une vue pour filtre à acheter
+Enlever ceux déjà lu et acheter
+colonnes to read / publication
+
+Ensuite
+Gestion des prêts
