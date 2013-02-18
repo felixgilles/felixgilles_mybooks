@@ -66,7 +66,7 @@ return array(
     'fields' => array(
         'medias->cover->medil_media_id' => array(
             'label' => '',
-            'widget' => 'Nos\Widget_Media',
+            'renderer' => 'Nos\Renderer_Media',
             'form' => array(
                 'title' => __('Cover'),
             ),
@@ -83,14 +83,14 @@ return array(
         ),
         'wysiwygs->description->wysiwyg_text' => array(
             'label' => __('Description'),
-            'widget' => 'Nos\Widget_Wysiwyg',
+            'renderer' => 'Nos\Renderer_Wysiwyg',
             'form' => array(
                 'style' => 'width: 100%; height: 250px;',
             ),
         ),
         'wysiwygs->comments->wysiwyg_text' => array(
             'label' => __('Comments'),
-            'widget' => 'Nos\Widget_Wysiwyg',
+            'renderer' => 'Nos\Renderer_Wysiwyg',
             'form' => array(
                 'style' => 'width: 100%; height: 250px;',
             ),
@@ -105,16 +105,22 @@ return array(
         ),
         'book_rating' => array(
             'label' => __('Ratting'),
-            'form' => array(
-                'type' => 'select',
-                'options' => array(0, 1, 2, 3, 4, 5),
+            'renderer' => 'Gif\Renderer_Rating',
+            'renderer_options' => array(
+                'rating' => array(
+                    'count' => 5,
+                    'totalValue' => 5,
+                ),
             ),
         ),
         'book_to_read' => array(
             'label' => __('To read'),
-            'form' => array(
-                'type' => 'select',
-                'options' => array(0, 1, 2, 3),
+            'renderer' => 'Gif\Renderer_Rating',
+            'renderer_options' => array(
+                'rating' => array(
+                    'count' => 3,
+                    'totalValue' => 3,
+                ),
             ),
         ),
         'book_isbn' => array (
@@ -125,7 +131,7 @@ return array(
         ),
         'book_publication' => array (
             'label' => __('Publication'),
-            'widget' => 'Nos\Widget_Date_Picker',
+            'renderer' => 'Nos\Renderer_Date_Picker',
         ),
         'book_publisher' => array (
             'label' => __('Publisher'),
@@ -153,12 +159,12 @@ return array(
         ),
         'book_acquisition' => array (
             'label' => __('Acquisition'),
-            'widget' => 'Nos\Widget_Date_Picker',
+            'renderer' => 'Nos\Renderer_Date_Picker',
         ),
         'authors' => array(
             'label' => __('Authors'),
-            'widget' => 'Nos\Widget_Tag',
-            'widget_options' => array(
+            'renderer' => 'Nos\Renderer_Tag',
+            'renderer_options' => array(
                 'model'         => 'Gif\\Model_Author',
                 'label_column'  => 'author_name',
                 'relation_name' => 'authors'
@@ -166,8 +172,8 @@ return array(
         ),
         'tags' => array(
             'label' => __('Tags'),
-            'widget' => 'Nos\Widget_Tag',
-            'widget_options' => array(
+            'renderer' => 'Nos\Renderer_Tag',
+            'renderer_options' => array(
                 'model'         => 'Gif\\Model_Tag',
                 'label_column'  => 'tag_label',
                 'relation_name' => 'tags'

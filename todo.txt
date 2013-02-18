@@ -14,7 +14,7 @@ Filtre avancé : lu, à acheter, note...
 
 Formulaire
 Cacher "to read" si déjà lu
-Widget ratting à base d'étoiles
+Widget ratting à base d'étoiles (cas du reset)
 Date de publication en mois/année
 Revoir widget pour les auteurs
 Revoir widget editeur (autocomplétion mais saisi possible)
