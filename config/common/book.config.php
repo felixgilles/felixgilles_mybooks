@@ -14,6 +14,19 @@ return array(
         ),
         'book_read' => array(
             'title' => __('Readed'),
+            'cellFormatters' => array(
+                'readed' => array(
+                    'type' => 'icon',
+                    'replace' => true,
+                    'mapping' => array(
+                        1 => 'static/apps/felixgilles_mybooks/img/16/readed.png'
+                    ),
+                ),
+                'center' => array(
+                    'type' => 'css',
+                    'css' => array('text-align' => 'center'),
+                ),
+            ),
         ),
         'book_rating' => array(
             'title' => __('Rate'),
