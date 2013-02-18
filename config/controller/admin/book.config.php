@@ -99,6 +99,8 @@ return array(
             'label' => __('Read'),
             'form' => array(
                 'type' => 'checkbox',
+                'value' => 1,
+                'empty' => 0,
             ),
         ),
         'book_rating' => array(
