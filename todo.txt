@@ -9,6 +9,7 @@ Colonne read en check image
 Colonne rate avec étoiles
 Lien sur titre (auteurs)
 Bouton pour ajouter via google livre
+Filtre avancé : lu, à acheter, note...
 
 
 Formulaire
