@@ -8,7 +8,7 @@
  * @link http://www.novius-os.org
  */
 
-namespace Gif;
+namespace Gif\MyBooks;
 
 class Renderer_Rating extends \Fieldset_Field
 {

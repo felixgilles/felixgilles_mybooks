@@ -49,7 +49,7 @@ return array(
     ),
     'thumbnails' => true,
     'actions' => array(
-        'Gif\Model_Book.import' => array(
+        'Gif\MyBooks\Model_Book.import' => array(
             'label' => __('Import books'),
             'targets' => array(
                 'toolbar-grid' => true,

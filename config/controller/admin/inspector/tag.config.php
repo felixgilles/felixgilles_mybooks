@@ -1,7 +1,7 @@
 <?php
 
 return array(
-    'model' => 'Gif\Model_Tag',
+    'model' => 'Gif\MyBooks\Model_Tag',
     'query' => array(
         'order_by' => 'tag_label',
     ),

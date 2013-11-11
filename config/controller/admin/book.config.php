@@ -9,7 +9,7 @@
 
 return array(
     'controller_url'  => 'admin/felixgilles_mybooks/book',
-    'model' => 'Gif\\Model_Book',
+    'model' => 'Gif\\MyBooks\\Model_Book',
     'layout' => array(
         'title' => 'book_title',
         'medias' => array('medias->cover->medil_media_id'),
@@ -105,7 +105,7 @@ return array(
         ),
         'book_rating' => array(
             'label' => __('Ratting'),
-            'renderer' => 'Gif\Renderer_Rating',
+            'renderer' => 'Gif\MyBooks\Renderer_Rating',
             'renderer_options' => array(
                 'rating' => array(
                     'count' => 5,
@@ -115,7 +115,7 @@ return array(
         ),
         'book_to_read' => array(
             'label' => __('To read'),
-            'renderer' => 'Gif\Renderer_Rating',
+            'renderer' => 'Gif\MyBooks\Renderer_Rating',
             'renderer_options' => array(
                 'rating' => array(
                     'count' => 3,
@@ -165,7 +165,7 @@ return array(
             'label' => __('Authors'),
             'renderer' => 'Nos\Renderer_Tag',
             'renderer_options' => array(
-                'model'         => 'Gif\\Model_Author',
+                'model'         => 'Gif\\MyBooks\\Model_Author',
                 'label_column'  => 'author_name',
                 'relation_name' => 'authors'
             ),
@@ -174,7 +174,7 @@ return array(
             'label' => __('Tags'),
             'renderer' => 'Nos\Renderer_Tag',
             'renderer_options' => array(
-                'model'         => 'Gif\\Model_Tag',
+                'model'         => 'Gif\\MyBooks\\Model_Tag',
                 'label_column'  => 'tag_label',
                 'relation_name' => 'tags'
             ),

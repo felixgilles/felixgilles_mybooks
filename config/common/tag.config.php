@@ -7,7 +7,7 @@ return array (
     ),
     'title_property' => 'tag_label',
     'actions' => array(
-        'Gif\Model_Tag.edit' => false,
-        'Gif\Model_Tag.visualise' => false,
+        'Gif\MyBooks\Model_Tag.edit' => false,
+        'Gif\MyBooks\Model_Tag.visualise' => false,
     ),
 );

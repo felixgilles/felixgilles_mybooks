@@ -7,7 +7,7 @@
  *             http://www.gnu.org/licenses/agpl-3.0.html
  */
 
-namespace Gif;
+namespace Gif\MyBooks;
 
 class Model_Book extends \Nos\Orm\Model
 {
@@ -23,7 +23,7 @@ class Model_Book extends \Nos\Orm\Model
             'key_to' => 'tag_id',
             'cascade_save' => true,
             'cascade_delete' => false,
-            'model_to'       => 'Gif\Model_Tag',
+            'model_to'       => 'Gif\MyBooks\Model_Tag',
         ),
         'authors' => array(
             'table_through' => 'mybooks_author_book',
@@ -33,7 +33,7 @@ class Model_Book extends \Nos\Orm\Model
             'key_to' => 'author_id',
             'cascade_save' => true,
             'cascade_delete' => false,
-            'model_to'       => 'Gif\Model_Author',
+            'model_to'       => 'Gif\MyBooks\Model_Author',
         ),
     );
 

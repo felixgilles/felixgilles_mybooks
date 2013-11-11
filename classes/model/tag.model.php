@@ -1,5 +1,5 @@
 <?php
-namespace Gif;
+namespace Gif\MyBooks;
 
 class Model_Tag extends \Nos\Orm\Model
 {
@@ -15,7 +15,7 @@ class Model_Tag extends \Nos\Orm\Model
             'key_to' => 'book_id',
             'cascade_save' => true,
             'cascade_delete' => false,
-            'model_to'       => 'Gif\Model_Book',
+            'model_to'       => 'Gif\MyBooks\Model_Book',
         ),
     );
 }

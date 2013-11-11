@@ -13,7 +13,7 @@ return array(
     'provider' => array(
         'name' => 'Gilles FELIX',
     ),
-    'namespace' => 'Gif',
+    'namespace' => 'Gif\MyBooks',
     'permission' => array(
     ),
     //'i18n_file' => 'noviusos_blognews::metadata',
@@ -24,7 +24,7 @@ return array(
     ),
 
     'launchers' => array(
-        'mybooks' => array(
+        'felixgilles_mybooks' => array(
             'name'    => 'My Books',
             'action' => array(
                 'action' => 'nosTabs',

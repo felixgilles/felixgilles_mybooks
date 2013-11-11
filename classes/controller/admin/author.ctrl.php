@@ -1,5 +1,5 @@
 <?php
-namespace Gif;
+namespace Gif\MyBooks;
 
 class Controller_Admin_Author extends \Nos\Controller_Admin_Crud
 {

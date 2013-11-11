@@ -1,7 +1,7 @@
 <?php
 return array (
     'controller_url'  => 'admin/felixgilles_mybooks/author',
-    'model' => 'Gif\\Model_Author',
+    'model' => 'Gif\\MyBooks\\Model_Author',
     'messages' => array(
         'successfully added' => __('Author successfully added.'),
         'successfully saved' => __('Author successfully saved.'),

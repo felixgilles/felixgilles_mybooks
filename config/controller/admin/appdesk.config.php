@@ -11,12 +11,12 @@ use Nos\I18n;
 I18n::load('felixgilles_mybooks::item');
 
 return array(
-    'model' => 'Gif\Model_Book',
+    'model' => 'Gif\MyBooks\Model_Book',
     'toolbar' => array(
-        'models' => array('Gif\Model_Book', 'Gif\Model_Author')
+        'models' => array('Gif\MyBooks\Model_Book', 'Gif\MyBooks\Model_Author')
     ),
     'query' => array(
-        'model' => 'Gif\Model_Book',
+        'model' => 'Gif\MyBooks\Model_Book',
         'related' => array('linked_medias'),
         'order_by' => array('book_title' => 'ASC'),
         'limit' => 20,
